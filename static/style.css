@@ -1,0 +1,72 @@
+
+.question-tag {
+    text-align: center;
+    margin-top: 200px;
+    margin-bottom: 100px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 100;
+    color:aliceblue;
+
+}
+.navigation-bar{
+    color: aliceblue;
+}
+.initializer-btn{
+    margin: 50px;
+}
+.z-form{
+    margin:  100px auto;
+    width: 300px;
+}
+.label{
+    color: aliceblue;
+    margin-bottom: 25px;
+    margin-top: 20px;
+
+}
+.sub-btn{
+    margin-top: 20px;
+    color: aliceblue;
+}
+.title{
+    text-align: center;
+    color: aliceblue;
+    margin-top: 100px;
+}
+.bad>li{
+    color: red;
+}
+
+.Typing-box-form{
+    margin-top: 100px;
+    text-align: center;
+}
+#submit-btn{
+    margin-right: 75px;
+}
+#comb-btn{
+    margin-top: 45px;
+}
+#text-to-type{
+    color: aliceblue;
+    text-align: center;
+    margin-top: 100px;
+    
+}
+.check{
+    size: 30px;
+    width: 200px;
+    height: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+}
+#score-report{
+    margin:100px auto;
+    width:400px;
+}
+#report-button{
+    margin:30px auto;
+    width:450px;
+}

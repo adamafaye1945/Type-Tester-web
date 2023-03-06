@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block main %}
+{{super()}}
+<div class="main-body">
+    <div class = "question-tag">
+        <h1>How <i><b>fast</b></i> can you type ?  </h1>
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <a href="{{url_for('login')}}" type="button" class="initializer-btn btn btn-primary">Begin Typing...</a>
+        </div>
+    </div>
+    
+</div>
+{% endblock main %}

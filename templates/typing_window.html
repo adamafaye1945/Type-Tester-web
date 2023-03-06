@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block main %}
+<div style="margin-top: 40px;">
+    <h2 style="color:aliceblue;">Highest score: {{current_user.highest_score}} </h2>
+    <script>
+        function startTimer(duration, display) {
+            var timer = duration, minutes, seconds;
+            setInterval(function () {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = minutes + ":" + seconds;
+
+                if (--timer < 0) {
+                    timer = duration;
+                }
+            }, 1000);
+        }
+
+        window.onload = function () {
+            var fiveMinutes = 60 * 5,
+                display = document.querySelector('#time');
+            startTimer(fiveMinutes, display);
+        };
+    </script>
+    <h2 style="color:aliceblue;">Time: <span id ="time"></span></h2>
+<div id="text-to-type">
+    {%with messages = get_flashed_messages()%}
+    {%for message in messages%}
+        <p style="color: green;margin-bottom: 50px;">{{message}}</p>
+    {%endfor%}
+    {%endwith%}
+    <p>{{generated_paragraph}}</p>
+</div>
+<form class = "Typing-box-form" action="{{url_for('result', current_paragraph = generated_paragraph )}}" method="post">
+    <div class="mb-3">
+        <textarea name="typed_text" class="form-control" id="FormControlTextarea" rows="5"></textarea>
+    </div>
+    <div id="comb-btn">
+    <input id =submit-btn class="btn btn-success" type="submit" value ="Submit">
+    <a href= "{{url_for('play_game')}}" class="btn btn-outline-warning">Restart</a> 
+    </div>
+</form>
+{% endblock main %}

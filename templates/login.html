@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<h1 class="title">
+    Log in to start the <i>SuperTyper</i>
+</h1>
+
+<form class="z-form" action="{{url_for('login')}}" method="post">
+    {%with messages = get_flashed_messages()%}
+{%if messages%}
+<ul class="bad">
+    {%for message in messages%}
+        <li>{{message}}</li>
+    {%endfor%}
+</ul>
+{%endif%}
+{%endwith%}
+    
+    {{form.email.label(class_ = 'label')}}
+    {{form.email(class_= "form-control")}}
+    {{form.password.label(class_='label')}}
+    {{form.password(class_='form-control')}}
+    <div style="text-align: center;">
+        {{form.submit(class_ ='sub-btn btn btn-outline-dark')}}
+        <p style="color:aliceblue;margin-top:20px">New user? <a href="{{url_for('sign_up')}}">Click here</a> to Sign up </p>
+
+    </div>
+</form>
+{% endblock main %}
+

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+    
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="/static/style.css">
+
+
+
+    <title>SuperTyper</title>
+    </head>
+    <body style="background-color: rgb(38, 28, 28);">
+        <section class="navigation-bar">
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid ">
+                    <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div class="navbar-nav ">
+                            {%if not logged_in %}
+                            <a style="color:aliceblue;" class="nav-link"href="{{url_for('main_page')}}">Home</a>
+                            <a style="color:aliceblue;" class="nav-link" href="{{url_for('login')}}">Login</a>
+                            <a style="color:aliceblue;" class="nav-link" href="{{url_for('sign_up')}}">Sign up</a>
+                            {%endif%}
+                            {%if logged_in%}
+                            <a style="color:aliceblue;" class="nav-link" href="{{url_for('logout')}}">Log out</a>  
+                            {%endif%}
+                        </div>
+                    </div>
+                    <i><a style="color:aliceblue;" class="navbar-brand" href="{{url_for('main_page')}}">SuperTyper <i class="fa-sharp fa-solid fa-bolt"></i><i class="fa-sharp fa-solid fa-bolt"></i></a></i>
+                </div>  
+            </nav>
+        </section> 
+            {% block main %}
+            
+            {% endblock %}
+            
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>   
+            <script src="https://kit.fontawesome.com/5169db07b0.js" crossorigin="anonymous"></script>
+
+        </body>
+</html>
+       
