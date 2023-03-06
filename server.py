@@ -9,12 +9,13 @@ from werkzeug.security import check_password_hash, generate_password_hash
 from paragraph_generator import generate_paragraph
 from score_calculator import corrector, score_calculator
 import time
+import os
 
 # setting up the flask app and connecting it to everything
 #  we are going to use, database, flask-login
 app = Flask(__name__)
 db = SQLAlchemy()
-app.secret_key ="anastasia"
+app.secret_key = os.environ["SECRET_KEY"]
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///user_database.db"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)

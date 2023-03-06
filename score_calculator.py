@@ -9,9 +9,6 @@ def corrector(typed_text, generated_text):
     for element in typed_text_splitted:
         element = element.rstrip()
         typed_text_cleaned_list.append(element)
-
-    print(generated_text)
-    print(typed_text_cleaned_list)
     if len(generated_text) != len(typed_text_cleaned_list):
         return False
     i = 0 
