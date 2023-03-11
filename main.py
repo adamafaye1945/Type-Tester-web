@@ -13,10 +13,12 @@ import os
 
 # setting up the flask app and connecting it to everything
 #  we are going to use, database, flask-login
+
+#postgres://super_database_user:MCwWC8nzrvYmGhTMx1ArkgyH79k8upzG@dpg-cg6912pmbg5ab7jrdb00-a.ohio-postgres.render.com/super_database
 app = Flask(__name__)
 db = SQLAlchemy()
-app.secret_key = os.environ["SECRET_KEY"]
-app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///user_database.db"
+app.secret_key = os.environ.get('SECRET_KEY')
+app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get('DATABASE_URL')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 login_manager = LoginManager()
