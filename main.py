@@ -96,6 +96,7 @@ def login():
 @app.route('/play_console/', methods=['GET', "POST"])
 @login_required
 def play_game():
+    global generated_paragraph
     generated_paragraph = generate_paragraph()
     global tic
     tic = time.perf_counter()
@@ -107,19 +108,26 @@ def play_game():
 #update score if we hit highest score
 @login_required
 @app.route('/result/<current_paragraph>', methods = ['POST', "GET"])
+
+
 def result (current_paragraph):
     typed_text = request.form.get('typed_text')
     global toc
     toc = time.perf_counter()
     time_in_seconds = int(toc-tic)-2
-    if corrector(typed_text= typed_text, generated_text= current_paragraph ):
-        score = score_calculator(typed_text=typed_text, time_in_seconds= time_in_seconds)
+    correction = corrector(typed_text= typed_text, generated_text= current_paragraph )
+    if correction[0]:
+        score = score_calculator(generated_text=generated_paragraph,corrector_return=correction, time_in_seconds= time_in_seconds)
         user = get_user(database_modal=User, email= current_user.email)
         if score > user.highest_score:
             update_score(database=db, new_score= score, user = user)
         return render_template(template_name_or_list= 'result.html', correct = True, score = score, time = time_in_seconds, logged_in = True)
-    score = 10
-    return render_template(template_name_or_list='result.html', score = 10, logged_in = True)
+    else:
+        score = score_calculator(generated_text= generated_paragraph, corrector_return=correction, time_in_seconds = time_in_seconds)
+        return render_template(template_name_or_list='result.html', 
+                               score = score, logged_in = True, 
+                               mistake_num = len(correction[1]), 
+                               mistake = correction[1])
 
         
 
