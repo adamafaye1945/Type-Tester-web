@@ -16,7 +16,7 @@
     <p style="color: aliceblue;">You have scored <i style="color: green;">{{score}} points</i> and your time is <i style="color: green;">{{time}} seconds</i></p>
     {%endif%}
     {%if not correct%}
-    <p style="color: aliceblue;">you have written a letter wrong, here is <i style="color: green;">{{score}} points for trying!</i></p>
+    <p style="color: aliceblue;">you have written these words <i style="color: red">{{mistake_num}}</i> letter, <i style="color:red;">{{mistake}}</i> wrong, here is your: <i style="color: green;">{{score}} points</i></p>
     {%endif%}
     <div id="report-button">
     <a class="btn btn-outline-warning" href="{{url_for('play_game')}}">Restart</a>
