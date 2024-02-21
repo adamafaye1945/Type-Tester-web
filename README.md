@@ -1,5 +1,4 @@
 # Type-Tester-web
-access website with(refresh if error on first click) : http://adamafaye1945.pythonanywhere.com/
 This is my first website (with backend included)
 This project is a website in which you play a typing game. Pretty much type as fast as you can and get your score, don't miss a letter or space!
 This project helped me understand better server and database more. I learned a lot in user authentification. 
